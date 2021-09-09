@@ -26,9 +26,9 @@ class Match:
         self.joueur = score_joueur[0]
         self.score = score_joueur[1]
 
-    def match_results(self,pairingT2):
+    def match_results(self,pairing):
         matchs = []
-        for pair in pairingT2:
+        for pair in pairing:
             resultat = input("if there is a winner, enter his last_name and first_name, if it is a tie, enter 'tie':")
             #mettre cet input dans le view et l'appeller dans le controller
             if resultat == pair[0][0]:

@@ -1,5 +1,5 @@
 from models import *
-from tinydb import TinyDB, Query, where
+from tinydb import TinyDB, Query
 
 
 class Controller:
@@ -51,7 +51,7 @@ class Controller:
 
     def pairing(self, tournoi):
 
-        tournoi.players.sort(key=lambda x: x.rank)
+        tournoi.players.sort(key=lambda x: x.rank) #reverse peut se faire sur une ligne : reverse = True
         tournoi.players.reverse()
 
         strong_players = tournoi.players[:(len(tournoi.players) // 2)]
