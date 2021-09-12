@@ -11,34 +11,32 @@ class Tournament:
         self.players = []
         self.serialized_players = []
         self.rounds = []
+        self.serialized_rounds = []
 
     def serialized_tournament(self):
         return {'name': self.name, 'place': self.place, 'date': self.date,
                 'number_of_rounds': self.number_of_rounds, 'number_of_players': self.number_of_players,
                 'time_control': self.time_control, 'description': self.description,
-                'players': self.serialized_players, 'rounds': self.rounds}
+                'players': self.serialized_players, 'rounds': self.serialized_rounds}
 
 
 class Round:
-    def __init__(self, matchs):
-        self.matchs = matchs
+    def __init__(self, round):
+        self.name = 'Round ' + str(round + 1)
+        self.matchs = []
 
-    def serialized_round(self, round):
-        matchs = {}
-
-        for index, match in enumerate(self.matchs):
-            match_name = 'match '
-            match_name = match_name + str(index + 1)
-            matchs[match_name] = []
-            matchs[match_name].append(match)
-
-        return {('round ' + str(round + 1)): matchs}
+    def serialized_round(self):
+        return {self.name: [(match.serialized_match()) for match in self.matchs]}
 
 
 class Match:
     def __init__(self, score_joueur=([], [])):
         self.joueur = score_joueur[0]
         self.score = score_joueur[1]
+        self.name = ''
+
+    def serialized_match(self):
+        return {self.name: ([self.joueur[0].serialized_player(), self.joueur[1].serialized_player()], self.score)}
 
 
 class Player:
@@ -52,7 +50,7 @@ class Player:
         self.score = 0
 
     def __str__(self):
-        return self.last_name
+        return self.last_name + ' ' + self.first_name
 
     def serialized_player(self):
         return {'last_name': self.last_name, 'first_name': self.first_name, 'birthday_date': self.birthday_date,

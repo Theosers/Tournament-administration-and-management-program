@@ -1,1188 +1,4 @@
 {
-    "tournament": {
-        "1": {
-            "name": "Frioul",
-            "place": "MArseiille",
-            "date": "554",
-            "round": 4,
-            "players": 2,
-            "time_control": "bullet",
-            "description": "gaga"
-        },
-        "2": {
-            "name": "Frioul",
-            "place": "Marseille",
-            "date": "54",
-            "round": 4,
-            "players": 2,
-            "time_control": "bullet",
-            "description": "gaga"
-        },
-        "3": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "round": 2,
-            "players": 2,
-            "time_control": "b",
-            "description": "a"
-        },
-        "4": {
-            "name": "AGA",
-            "place": "marsq",
-            "date": "5",
-            "round": 4,
-            "players": 2,
-            "time_control": "b",
-            "description": "a"
-        },
-        "5": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "round": 4,
-            "players": 2,
-            "time_control": "bl",
-            "description": ""
-        },
-        "6": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "round": 4,
-            "players": 2,
-            "time_control": "b",
-            "description": "a"
-        },
-        "7": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "b",
-            "description": "m",
-            "players": [],
-            "rounds": []
-        },
-        "8": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "9": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "10": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "11": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "12": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "13": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 4,
-            "number_of_players": 4,
-            "time_control": "a dupont",
-            "description": "b dupont",
-            "rounds": []
-        },
-        "14": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 4,
-            "number_of_players": 4,
-            "time_control": "a dupont",
-            "description": "b dupont",
-            "rounds": [
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dulac"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ],
-                        [
-                            [
-                                "a dupont",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ],
-                        [
-                            [
-                                "a dulac",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ],
-                        [
-                            [
-                                "a dulac",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "match": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ],
-                        [
-                            [
-                                "a dulac",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "15": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 1,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "16": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 1,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "17": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "18": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "round": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "19": {
-            "name": "a",
-            "place": "a",
-            "date": "a",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "20": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "21": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "22": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "23": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "24": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "25": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dulac"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ],
-                    "round01": [
-                        [
-                            [
-                                "a dupont",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "round": [],
-                    "round0": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ],
-                    "round01": [
-                        [
-                            [
-                                "a dulac",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "26": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "27": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "28": {
-            "name": "3",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "29": {
-            "name": "3",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": [],
-                    "match 1": [
-                        [
-                            [
-                                "a dupont",
-                                "a dulac"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ],
-                    "match 12": [
-                        [
-                            [
-                                "a dupont",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "round": [],
-                    "match 1": [
-                        [
-                            [
-                                "a dupont",
-                                "a dupont"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ],
-                    "match 12": [
-                        [
-                            [
-                                "a dulac",
-                                "c dupond"
-                            ],
-                            [
-                                0.5,
-                                0.5
-                            ]
-                        ]
-                    ]
-                }
-            ]
-        },
-        "30": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "31": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "32": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dupont"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dupont"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dupont"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dupont"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "33": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 4,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "34": {
-            "name": "1",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "35": {
-            "name": "1",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "0": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dulac",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dulac",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "36": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "37": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round 1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dulac",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 2": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dulac",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "38": {
-            "name": "bla",
-            "place": "bla",
-            "date": "bl",
-            "number_of_rounds": 4,
-            "number_of_players": 4,
-            "time_control": "bullet",
-            "description": "a dupont",
-            "rounds": []
-        },
-        "39": {
-            "name": "bla",
-            "place": "bla",
-            "date": "bl",
-            "number_of_rounds": 4,
-            "number_of_players": 4,
-            "time_control": "bullet",
-            "description": "a dupont",
-            "rounds": [
-                {
-                    "round 1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    1,
-                                    0
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dulac",
-                                    "c dupond"
-                                ],
-                                [
-                                    0,
-                                    1
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 2": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "c dupond",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 3": {
-                        "match 1": [
-                            [
-                                [
-                                    "c dupond",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 4": {
-                        "match 1": [
-                            [
-                                [
-                                    "c dupond",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "40": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "41": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round 1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 2": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "42": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "43": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "44": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": []
-        },
-        "45": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 2,
-            "time_control": "",
-            "description": "",
-            "rounds": [
-                {
-                    "round 1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 2": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        },
-        "46": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "players": [],
-            "rounds": []
-        },
-        "47": {
-            "name": "",
-            "place": "",
-            "date": "",
-            "number_of_rounds": 2,
-            "number_of_players": 4,
-            "time_control": "",
-            "description": "",
-            "players": [
-                {
-                    "last_name": "a",
-                    "first_name": "dupont",
-                    "birthday_date": "45",
-                    "gender": "M",
-                    "rank": 2000
-                },
-                {
-                    "last_name": "c",
-                    "first_name": "dupond",
-                    "birthday_date": "4",
-                    "gender": "M",
-                    "rank": 4
-                },
-                {
-                    "last_name": "a",
-                    "first_name": "dupont",
-                    "birthday_date": "45",
-                    "gender": "M",
-                    "rank": 2000
-                },
-                {
-                    "last_name": "a",
-                    "first_name": "dulac",
-                    "birthday_date": "7",
-                    "gender": "M",
-                    "rank": 555
-                }
-            ],
-            "rounds": [
-                {
-                    "round 1": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dulac"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dupont",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                },
-                {
-                    "round 2": {
-                        "match 1": [
-                            [
-                                [
-                                    "a dupont",
-                                    "a dupont"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ],
-                        "match 2": [
-                            [
-                                [
-                                    "a dulac",
-                                    "c dupond"
-                                ],
-                                [
-                                    0.5,
-                                    0.5
-                                ]
-                            ]
-                        ]
-                    }
-                }
-            ]
-        }
-    },
     "players": {
         "1": {
             "last_name": "a",
@@ -1232,6 +48,257 @@
             "birthday_date": "4",
             "gender": "M",
             "rank": "2000"
+        }
+    },
+    "tournament": {
+        "2": {
+            "name": "frioul",
+            "place": "",
+            "date": "",
+            "number_of_rounds": 4,
+            "number_of_players": 4,
+            "time_control": "b",
+            "description": "",
+            "players": [
+                {
+                    "last_name": "a",
+                    "first_name": "dulac",
+                    "birthday_date": "7",
+                    "gender": "M",
+                    "rank": 555
+                },
+                {
+                    "last_name": "a",
+                    "first_name": "dupont",
+                    "birthday_date": "45",
+                    "gender": "M",
+                    "rank": 2000
+                },
+                {
+                    "last_name": "c",
+                    "first_name": "dupond",
+                    "birthday_date": "4",
+                    "gender": "M",
+                    "rank": 4
+                },
+                {
+                    "last_name": "a",
+                    "first_name": "dulac",
+                    "birthday_date": "7",
+                    "gender": "M",
+                    "rank": 555
+                }
+            ],
+            "rounds": [
+                {
+                    "Round 1": [
+                        {
+                            "match 1": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dupont",
+                                        "birthday_date": "45",
+                                        "gender": "M",
+                                        "rank": 2000
+                                    },
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        },
+                        {
+                            "match 2": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    },
+                                    {
+                                        "last_name": "c",
+                                        "first_name": "dupond",
+                                        "birthday_date": "4",
+                                        "gender": "M",
+                                        "rank": 4
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Round 2": [
+                        {
+                            "match 1": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dupont",
+                                        "birthday_date": "45",
+                                        "gender": "M",
+                                        "rank": 2000
+                                    },
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        },
+                        {
+                            "match 2": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    },
+                                    {
+                                        "last_name": "c",
+                                        "first_name": "dupond",
+                                        "birthday_date": "4",
+                                        "gender": "M",
+                                        "rank": 4
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Round 3": [
+                        {
+                            "match 1": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dupont",
+                                        "birthday_date": "45",
+                                        "gender": "M",
+                                        "rank": 2000
+                                    },
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        },
+                        {
+                            "match 2": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    },
+                                    {
+                                        "last_name": "c",
+                                        "first_name": "dupond",
+                                        "birthday_date": "4",
+                                        "gender": "M",
+                                        "rank": 4
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Round 4": [
+                        {
+                            "match 1": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dupont",
+                                        "birthday_date": "45",
+                                        "gender": "M",
+                                        "rank": 2000
+                                    },
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        },
+                        {
+                            "match 2": [
+                                [
+                                    {
+                                        "last_name": "a",
+                                        "first_name": "dulac",
+                                        "birthday_date": "7",
+                                        "gender": "M",
+                                        "rank": 555
+                                    },
+                                    {
+                                        "last_name": "c",
+                                        "first_name": "dupond",
+                                        "birthday_date": "4",
+                                        "gender": "M",
+                                        "rank": 4
+                                    }
+                                ],
+                                [
+                                    0.5,
+                                    0.5
+                                ]
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     }
 }

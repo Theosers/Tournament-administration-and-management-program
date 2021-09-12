@@ -2,8 +2,10 @@ from models import *
 from tinydb import TinyDB, Query
 from faker import Faker
 import random
-
-
+import time
+'''t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
+print(current_time)'''
 class Controller:
     def __init__(self, View):
         self.view = View
@@ -18,22 +20,38 @@ class Controller:
 
         for number_of_player in range(tournoi.number_of_players):
             self.add_player_to_db(tournoi)
-        print(tournoi.rounds)
         for round in range(tournoi.number_of_rounds):
+            r = Round(round)
             if round == 0:
                 pairing = self.pairing_round_one(tournoi)
             else:
-                pairing = self.pairing_others(tournoi, matchs)
+                pairing = self.pairing_others(tournoi, r.matchs)
 
-            print(pairing)  # dans le view : le joueur a joue contre b, etc
-            matchs = self.matchs_results(pairing)
-            self.update_player_score(tournoi, matchs)
+            for index, pair in enumerate(pairing):
+
+                winner = self.view.prompt_for_winner()
+
+                if winner == str(pair[0]):
+                    match = Match(([pair[0], pair[1]], [1, 0]))
+
+                elif winner == str(pair[1]):
+
+                    match = Match(([pair[0], pair[1]], [0, 1]))
+                elif winner == 'tie':
+                    match = Match(([pair[0], pair[1]], [0.5, 0.5]))
+                else:
+                    print("error")
+                match.name = 'match ' + str(index + 1)
+
+                r.matchs.append(match)
+            tournoi.rounds.append(r)
+            tournoi.serialized_rounds.append(r.serialized_round())
+            # self.update_player_score(tournoi, r.matchs)
 
             print("****************************************")
-            r = Round(matchs)
-            tournoi.rounds.append(r.serialized_round(round))
-        for player in tournoi.players:
-            self.view.prompt_for_end_of_tournament(player.last_name, player.score)
+
+        # for player in tournoi.players:
+        # self.view.prompt_for_end_of_tournament(player.last_name, player.score)
 
         self.db_tournament_table.insert(tournoi.serialized_tournament())
 
@@ -65,46 +83,25 @@ class Controller:
             tournoi.serialized_players.append(player.serialized_player())
 
     def pairing_round_one(self, tournoi):
-        print(tournoi.players)
+
         tournoi.players.sort(key=lambda x: x.rank)  # reverse peut se faire sur une ligne : reverse = True
         tournoi.players.reverse()
 
         strong_players = tournoi.players[:(len(tournoi.players) // 2)]
         weak_players = tournoi.players[(len(tournoi.players) // 2):]
 
-        strong_players_rank = [(player.last_name + ' ' + player.first_name, player.rank) for player in strong_players]
-        weak_players_rank = [(player.last_name + ' ' + player.first_name, player.rank) for player in weak_players]
-
-        return list(zip(strong_players_rank, weak_players_rank))
+        return list(zip(strong_players, weak_players))
 
     def pairing_others(self, tournoi, matchs):
 
         tournoi.players.sort(key=lambda x: x.score, reverse=True)
 
-        pairing = [(player.last_name + ' ' + player.first_name, player.rank) for player in tournoi.players[::2]]
-        pairing2 = [(player.last_name + ' ' + player.first_name, player.rank) for player in tournoi.players[1::2]]
+        pairing = [player for player in tournoi.players[::2]]
+        pairing2 = [player for player in tournoi.players[1::2]]
 
         # si j1 deja jouer j2 => J1,j3, si J1,j3 déjà jouer =>
 
         return (list(zip(pairing, pairing2)))
-
-    def matchs_results(self, pairing):
-        matchs = []
-        for pair in pairing:
-            winner = input("if there is a winner, enter his last_name and first_name, if it is a tie, enter 'tie':")
-            # mettre cet input dans le view et l'appeller dans le controller
-            if winner == pair[0][0]:
-
-                match = Match(([pair[0][0], pair[1][0]], [1, 0]))
-            elif winner == pair[1][0]:
-
-                match = Match(([pair[0][0], pair[1][0]], [0, 1]))
-            elif winner == 'tie':
-                match = Match(([pair[0][0], pair[1][0]], [0.5, 0.5]))
-            else:
-                print("error")
-            matchs.append((match.joueur, match.score))
-        return matchs
 
     def update_player_score(self, tournoi, matchs):
         for joueur in tournoi.players:
@@ -145,3 +142,50 @@ class Controller:
                   this_player['rank'])
         except TypeError:
             print("ce joueur n'exste pas")
+
+    def all_tournaments(self):
+        tournaments = sorted(self.db_tournament_table.all(), key=lambda x: x['name'])
+        for n, tournament in enumerate(tournaments):
+            print('n°', n, ':', 'name : ', tournament['name'], '||', 'place :',
+                  tournament['place'], '||', 'date', tournament['date'], '||', 'number_of_rounds :',
+                  tournament['number_of_rounds'], '||',
+                  'time : ', tournament['time_control'], '||', 'description : ', tournament['description'])
+
+            print(
+                '-----------------------------------------------------------------------------------------------------')
+
+    def all_round_in_tournament(self, name):
+        tournament = Query()
+
+        for index, round in enumerate(self.db_tournament_table.get(tournament.name == name)['rounds']):
+            print("-------------------------------------------------------------")
+            print('Round ' + str(index + 1) + ' : ')
+
+            for jindex, match in enumerate(round['Round ' + str(index + 1)]):
+                print('match ' + str(jindex + 1), ': name :',
+                      round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][0][0]['last_name'],
+                      round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][0][0]['first_name'],
+                      '(', round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][1][0], ')',
+                      ' || name :',
+                      round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][0][1]['last_name'],
+                      round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][0][1]['first_name'],
+                      '(', round['Round ' + str(index + 1)][jindex]['match ' + str(jindex + 1)][1][1], ')')
+
+    def menu(self):
+        choice = self.view.prompt_menu()
+        if choice == 1:
+            self.new_Tournament()
+        elif choice == 2:
+            self.add_player_to_db(tournoi=False)
+        elif choice == 3:
+            second_choice = self.view.prompt_menu_player_db()
+            if second_choice == 1:
+                self.all_db_players()
+            elif second_choice == 2:
+                control.one_db_player(self.view.prompt_for_asking_player_name())
+        elif choice == 4:
+            self.all_tournaments()
+        elif choice == 5:
+            control.all_round_in_tournament(self.view.prompt_for_asking_player_name())
+        else:
+            print("error")
