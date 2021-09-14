@@ -24,6 +24,7 @@ class Round:
     def __init__(self, round):
         self.name = 'Round ' + str(round + 1)
         self.matchs = []
+        self.time = []
 
     def serialized_round(self):
         return {self.name: [(match.serialized_match()) for match in self.matchs]}
