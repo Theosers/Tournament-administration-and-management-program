@@ -18,6 +18,8 @@ class View:
             date = input("Date : ")
 
             number_of_rounds = input("Number of rounds : ")
+            if number_of_rounds == "":
+                number_of_rounds = 4
 
             if not self.test_is_number(number_of_rounds):
                 continue
@@ -63,7 +65,6 @@ class View:
                 continue
             last_name.capitalize()
             first_name = input("First name :")
-
 
             if not self.test_only_letter(first_name):
                 continue
@@ -228,7 +229,6 @@ class View:
         except IndexError:
             print("You have forgotten to write the last_name or first_name")
 
-
     def test_gender_format(self, gender):
         if gender == 'M' or gender == 'F':
             return True
@@ -287,6 +287,7 @@ class View:
         Bonne ou mauvaise idée ?
 
         '''
+
     def prompt_all_round_in_tournament_choice(self):
         while True:
             print("This name matches with no tournament, do you want to try again ?")

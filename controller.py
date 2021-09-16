@@ -1,17 +1,8 @@
-from models import Tournament,Round,Match,Player
+from models import Tournament, Round, Match, Player
 from tinydb import TinyDB, Query
-from faker import Faker
-import random
 import time
-import sys
 from os import system, name
 
-def clear():
-    # for windows
-    if name == 'nt':
-        _ = system('cls')
-    else:
-        _ = system('clear')
 
 class Controller:
     def __init__(self, View):
@@ -29,13 +20,11 @@ class Controller:
             self.add_player_to_db(current_tournament)
         for round in range(current_tournament.number_of_rounds):
 
-
             clear()
             self.view.prompt_begin_pairing()
             if round == 0:
                 pairing = self.pairing_round_one(current_tournament)
             else:
-
 
                 pairing = self.pairing_others(current_tournament, r.matchs)
             for pair in pairing:
@@ -70,16 +59,12 @@ class Controller:
 
                 r.matchs.append(match)
 
-
-            self.view.prompt_end_round(round,current_time)
+            self.view.prompt_end_round(round, current_time)
             r.time.append(current_time)
             current_tournament.rounds.append(r)
             current_tournament.serialized_rounds.append(r.serialized_round())
             for player in current_tournament.players:
                 self.view.prompt_for_end_of_tournament(player.last_name + ' ' + player.first_name, player.score)
-
-
-
 
         self.view.prompt_press_enter()
         self.db_tournament_table.insert(current_tournament.serialized_tournament())
@@ -99,7 +84,7 @@ class Controller:
                     self.view.prompt_profile_exist()
                     exist = True
                     break
-        if exist == False:
+        if not exist :
             self.view.prompt_new_profile()
             this_player = self.view.prompt_for_new_player()
             self.db_players_table.insert(this_player)
@@ -117,27 +102,25 @@ class Controller:
         strong_players = current_tournament.players[:(len(current_tournament.players) // 2)]
         weak_players = current_tournament.players[(len(current_tournament.players) // 2):]
 
-
         return list(zip(strong_players, weak_players))
 
     def pairing_others(self, current_tournament, matchs):
 
         current_tournament.players.sort(key=lambda x: x.score, reverse=True)
 
-
-
         pairing = [player for player in current_tournament.players[::2]]
         pairing2 = [player for player in current_tournament.players[1::2]]
 
-        final_pairing = (list(zip(pairing, pairing2)))
+        return (list(zip(pairing, pairing2)))
+
+    '''final_pairing = (list(zip(pairing, pairing2)))
+
         for match in matchs:
             for pair in final_pairing:
                 if match.joueur[0] == pair[0] and match.joueur[1] == pair[1]:
                     pass
-
         # si j1 deja jouer j2 => J1,j3, si J1,j3 déjà jouer =>
-
-        return
+        '''
 
     def update_player_score(self, current_tournament, matchs):
         for joueur in current_tournament.players:
@@ -148,19 +131,11 @@ class Controller:
                 elif (joueur.last_name + ' ' + joueur.first_name) == match[0][1]:
                     joueur.score += match[1][1]
 
-    def fake_player(self):
-        fake = Faker()
-        for n in range(100):
-            self.db_players.insert({'last_name': fake.last_name(), 'first_name': fake.first_name(),
-                                    'birthday_date': str(random.randint(1, 30)) + '/' + str(
-                                        random.randint(1, 12)) + '/' + str(random.randint(1940, 2021)),
-                                    'gender': random.choice(['M', 'F']), 'rank': random.randint(1, 2000)})
-
     def all_db_players(self):
 
         players = sorted(self.db_players_table.all(), key=lambda x: x['last_name'])
         for n, player in enumerate(players):
-            self.view.prompt_all_db_players(player,n)
+            self.view.prompt_all_db_players(player, n)
         self.view.prompt_press_enter()
 
     def one_db_player(self, player):
@@ -177,7 +152,7 @@ class Controller:
     def all_tournaments(self):
         tournaments = sorted(self.db_tournament_table.all(), key=lambda x: x['name'])
         for n, tournament in enumerate(tournaments):
-            self.view.prompt_all_tournaments(n,tournament)
+            self.view.prompt_all_tournaments(n, tournament)
         self.view.prompt_press_enter()
 
     def all_round_in_tournament(self):
@@ -195,11 +170,11 @@ class Controller:
                 self.view.prompt_all_rounds(index)
 
                 for jindex, match in enumerate(round['Round ' + str(index + 1)]):
-
-                    self.view.prompt_all_matchs(index,jindex,round)
+                    self.view.prompt_all_matchs(index, jindex, round)
 
             break
         self.view.prompt_press_enter()
+
     def menu(self):
         clear()
         while True:
@@ -230,11 +205,10 @@ class Controller:
             else:
                 print("error")
 
-    def waitingAnimation(self,n):
-        n = n*3
-        for _ in range(n):
-            _ = _ % 3 + 1
-            dots = _ * '.' + (3 - _) * ' '
-            sys.stdout.write('\r Waiting ' + dots)
-            sys.stdout.flush()
-            time.sleep(0.3)
+
+def clear():
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
