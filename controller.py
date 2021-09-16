@@ -28,16 +28,20 @@ class Controller:
         for number_of_player in range(current_tournament.number_of_players):
             self.add_player_to_db(current_tournament)
         for round in range(current_tournament.number_of_rounds):
-            r = Round(round)
+
+
             clear()
             self.view.prompt_begin_pairing()
             if round == 0:
                 pairing = self.pairing_round_one(current_tournament)
             else:
+
+
                 pairing = self.pairing_others(current_tournament, r.matchs)
             for pair in pairing:
-                self.view.prompt_for_opponent()
+                self.view.prompt_for_opponent(pair)
 
+            r = Round(round)
 
             t = time.localtime()
             current_time = time.strftime("%H:%M:%S", t)
@@ -66,6 +70,7 @@ class Controller:
 
                 r.matchs.append(match)
 
+
             self.view.prompt_end_round(round,current_time)
             r.time.append(current_time)
             current_tournament.rounds.append(r)
@@ -85,12 +90,6 @@ class Controller:
 
         who = Query()
         exist = False
-        '''if self.db_players_table.search(who.last_name == full_name[0]) == [] or \
-                self.db_players_table.search(who.first_name == full_name[1]) == []:
-            self.view.prompt_new_profile()
-            this_player = self.view.prompt_for_new_player()
-            self.db_players_table.insert(self.view.prompt_for_new_player())
-        '''
 
         for elem in self.db_players_table.search(who.last_name == full_name[0]):
             for elem2 in self.db_players_table.search(who.first_name == full_name[1]):
@@ -125,12 +124,20 @@ class Controller:
 
         current_tournament.players.sort(key=lambda x: x.score, reverse=True)
 
+
+
         pairing = [player for player in current_tournament.players[::2]]
         pairing2 = [player for player in current_tournament.players[1::2]]
 
+        final_pairing = (list(zip(pairing, pairing2)))
+        for match in matchs:
+            for pair in final_pairing:
+                if match.joueur[0] == pair[0] and match.joueur[1] == pair[1]:
+                    pass
+
         # si j1 deja jouer j2 => J1,j3, si J1,j3 déjà jouer =>
 
-        return (list(zip(pairing, pairing2)))
+        return
 
     def update_player_score(self, current_tournament, matchs):
         for joueur in current_tournament.players:
@@ -173,15 +180,25 @@ class Controller:
             self.view.prompt_all_tournaments(n,tournament)
         self.view.prompt_press_enter()
 
-    def all_round_in_tournament(self, name):
+    def all_round_in_tournament(self):
         tournament = Query()
+        while True:
+            name = self.view.prompt_asking_tournament_name()
+            if self.db_tournament_table.search(tournament.name == name) == []:
+                choice = self.view.prompt_all_round_in_tournament_choice()
+                if choice == 1:
+                    continue
+                elif choice == 2:
+                    break
 
-        for index, round in enumerate(self.db_tournament_table.get(tournament.name == name)['rounds']):
-            self.view.prompt_all_rounds(index)
+            for index, round in enumerate(self.db_tournament_table.get(tournament.name == name)['rounds']):
+                self.view.prompt_all_rounds(index)
 
-            for jindex, match in enumerate(round['Round ' + str(index + 1)]):
+                for jindex, match in enumerate(round['Round ' + str(index + 1)]):
 
-                self.view.prompt_all_matchs(index,jindex,round)
+                    self.view.prompt_all_matchs(index,jindex,round)
+
+            break
         self.view.prompt_press_enter()
     def menu(self):
         clear()
@@ -206,7 +223,7 @@ class Controller:
                 self.all_tournaments()
                 clear()
             elif choice == 5:
-                self.all_round_in_tournament(self.view.prompt_asking_tournament_name() )
+                self.all_round_in_tournament()
                 clear()
             elif choice == 6:
                 break
