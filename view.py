@@ -1,21 +1,51 @@
+import datetime
+
 class View:
     def prompt_for_new_tournament_infos(self):
         print("A new tournament has begun\n")
 
         while True:
             print(
-                '-----------------------------------------------------------------------------------------------------')
-            name = input("Name of this tournament : ")
+                '----------------------------------------------------------------------------------------------------')
+            name = ""
+            while name == "":
+                name = input("Name of this tournament : ")
+                if name == "":
+                    print("You have to write a name")
+                    continue
+                break
 
             if not self.test_first_as_letter(name):
                 continue
             name = name.capitalize()
-            place = input("Place of this tournament : ")
+
+            place = ""
+            while place == "":
+                place = input("Place of this tournament : ")
+                if place == "":
+                    print("You have to write a place")
+                    continue
+                break
 
             if not self.test_first_as_letter(place):
                 continue
             place = place.capitalize()
-            date = input("Date : ")
+
+            print("Please enter a date for the tournament")
+            year = input("Year : ")
+            month = input("Month : ")
+            day = input("Day : ")
+
+            if not self.test_is_number(year):
+                continue
+            if not self.test_is_number(month):
+                continue
+            if not self.test_is_number(day):
+                continue
+
+            if not self.test_date_valid(int(year), int(month), int(day)):
+                continue
+            date = year + '-' + month + '-' + day
 
             number_of_rounds = input("Number of rounds : ")
             if number_of_rounds == "":
@@ -27,7 +57,10 @@ class View:
             number_of_players = input("Number of players : ")
             if not self.test_is_number(number_of_players):
                 continue
-
+            if not self.test_at_least_four_players(number_of_players):
+                continue
+            if not self.test_number_of_player_is_even(number_of_players):
+                continue
             time_control = input("Bullet, blitz or rapid tournament ? : ")
             time_control = time_control.capitalize()
 
@@ -36,7 +69,7 @@ class View:
 
             description = input("Enter a quick description of this tournament : ")
             print(
-                '-----------------------------------------------------------------------------------------------------')
+                '----------------------------------------------------------------------------------------------------')
             break
 
         return [name, place, date, int(number_of_rounds), int(number_of_players), time_control, description]
@@ -55,21 +88,25 @@ class View:
             break
         return full_name
 
-    def prompt_for_new_player(self):
+    def prompt_for_new_player(self, full_name):
         while True:
             print(
                 '***********************************************')
-            last_name = input("Last name :")
+            print("Please enter a Birthday date")
+            year = input("Year : ")
+            month = input("Month : ")
+            day = input("Day : ")
 
-            if not self.test_only_letter(last_name):
+            if not self.test_is_number(year):
                 continue
-            last_name.capitalize()
-            first_name = input("First name :")
+            if not self.test_is_number(month):
+                continue
+            if not self.test_is_number(day):
+                continue
 
-            if not self.test_only_letter(first_name):
+            if not self.test_date_valid(int(year), int(month), int(day)):
                 continue
-            first_name.capitalize()
-            birthday_date = input("Birthday date :")
+            birthday_date = year + '-' + month + '-' + day
             gender = input("Gender :")
             if not self.test_first_as_letter(gender):
                 continue
@@ -86,7 +123,7 @@ class View:
                 '***********************************************')
             break
 
-        new_player_infos = {'last_name': last_name, 'first_name': first_name, 'birthday_date': birthday_date,
+        new_player_infos = {'last_name': full_name[0], 'first_name': full_name[1], 'birthday_date': birthday_date,
                             'gender': gender, 'rank': rank}
 
         return new_player_infos
@@ -97,6 +134,8 @@ class View:
     def prompt_for_winner(self, pairing):
         while True:
             full_name = input(f"Who wins between {pairing[0]} and {pairing[1]} : ")
+            if full_name == 'tie':
+                break
             if not self.test_is_full_name(full_name):
                 continue
             full_name.split()
@@ -112,11 +151,12 @@ class View:
         while True:
             print("----------------------------------------------------------------------------")
             print("1. New tournament")
-            print("2. Add a player")
-            print("3. Player's database")
-            print("4. List all tournaments")
-            print("5. List of all rounds in a tournament")
-            print("6. Exit")
+            print("2. Change rank of a player")
+            print("3. Add a player")
+            print("4. Player's database")
+            print("5. List all tournaments")
+            print("6. List of all rounds in a tournament")
+            print("7. Exit")
             print("----------------------------------------------------------------------------")
             choice = input("Your choice ? :")
             if not self.test_choice_menu(choice):
@@ -192,7 +232,18 @@ class View:
         input("\nPress enter to continue")
 
     def prompt_begin_pairing(self):
-        input("Press enter to begin pairing")
+        key = input("Insert '*' to change the rank of a player or press enter to begin pairing")
+        if key == "*":
+            return True
+        return False
+    def prompt_new_rank(self):
+        rank = -1
+        while rank == -1:
+            rank = input("What is the new rank of this player ?")
+            if not self.test_rank_integrity(rank):
+                continue
+        return int(rank)
+
 
     def prompt_for_opponent(self, pair):
         print(f"\nplayer [{pair[0]}] plays against [{pair[1]}]")
@@ -258,7 +309,7 @@ class View:
         try:
             choice = int(choice)
             if not 1 <= choice <= 6:
-                print("Your number is not between [1-6]")
+                print("Your number is not between [1-7]")
                 return False
             return True
 
@@ -276,17 +327,22 @@ class View:
         except ValueError:
             print("This is not a number !")
 
-        ''' 
-        def test_is_number(self,my_function):
+    def test_date_valid(self, year, month, day):
+        correctDate = None
         try:
-            my_function
+            newDate = datetime.datetime(year, month, day)
+            correctDate = True
         except ValueError:
-            print("This is not a number !")
-            
+            correctDate = False
+            print("this is not a valid date")
 
-        Bonne ou mauvaise idée ?
+        return correctDate
 
-        '''
+    def prompt_menu_error(self):
+        print("Error, your choice should be between 1 and 7")
+
+    def prompt_player_not_exist(self):
+        print("this player does not exist")
 
     def prompt_all_round_in_tournament_choice(self):
         while True:
@@ -298,3 +354,14 @@ class View:
                 continue
             break
         return int(choice)
+
+    def test_at_least_four_players(self,number_of_players):
+        if int(number_of_players) < 4:
+            print("You need at least 4 players to begin a tournament")
+            return False
+        return True
+    def test_number_of_player_is_even(self,number_of_players):
+        if not int(number_of_players) % 2 == 0:
+            print("You should enter an even number")
+            return False
+        return True
