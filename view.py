@@ -1,5 +1,6 @@
 import datetime
 
+
 class View:
     def prompt_for_new_tournament_infos(self):
         print("A new tournament has begun\n")
@@ -236,6 +237,7 @@ class View:
         if key == "*":
             return True
         return False
+
     def prompt_new_rank(self):
         rank = -1
         while rank == -1:
@@ -243,7 +245,6 @@ class View:
             if not self.test_rank_integrity(rank):
                 continue
         return int(rank)
-
 
     def prompt_for_opponent(self, pair):
         print(f"\nplayer [{pair[0]}] plays against [{pair[1]}]")
@@ -308,7 +309,7 @@ class View:
     def test_choice_menu(self, choice):
         try:
             choice = int(choice)
-            if not 1 <= choice <= 6:
+            if not 1 <= choice <= 7:
                 print("Your number is not between [1-7]")
                 return False
             return True
@@ -355,12 +356,13 @@ class View:
             break
         return int(choice)
 
-    def test_at_least_four_players(self,number_of_players):
+    def test_at_least_four_players(self, number_of_players):
         if int(number_of_players) < 4:
             print("You need at least 4 players to begin a tournament")
             return False
         return True
-    def test_number_of_player_is_even(self,number_of_players):
+
+    def test_number_of_player_is_even(self, number_of_players):
         if not int(number_of_players) % 2 == 0:
             print("You should enter an even number")
             return False

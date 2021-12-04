@@ -4,6 +4,7 @@ from tinydb.operations import set as change
 import time
 from os import system, name
 
+
 class Controller:
     def __init__(self, View):
         self.view = View
@@ -24,16 +25,13 @@ class Controller:
             if change_rank:
                 player = self.view.prompt_for_asking_player_name()
                 new_rank = self.view.prompt_new_rank()
-                for p in current_tournament.players :
+                for p in current_tournament.players:
                     if p.last_name + " " + p.first_name == player:
                         p.rank = new_rank
-                        print(p.last_name, p.rank)
                 for p in current_tournament.serialized_players:
                     if p['last_name'] == player.split()[0] and p['first_name'] == player.split()[1]:
                         p['rank'] = new_rank
-                        print(p['last_name'], p['rank'])
-                self.modify_player_rank_to_db(player,new_rank)
-
+                self.modify_player_rank_to_db(player, new_rank)
 
             if round == 0:
                 pairing = self.pairing_round_one(current_tournament)
@@ -80,7 +78,6 @@ class Controller:
 
     def add_player_to_db(self, current_tournament):
 
-
         full_name = self.view.prompt_for_asking_player_name().split()
 
         who = Query()
@@ -103,27 +100,27 @@ class Controller:
             player = Player(this_player)
             current_tournament.players.append(player)
             current_tournament.serialized_players.append(player.serialized_player())
-    def modify_player_rank_to_db(self,full_name,new_rank):
+
+    def modify_player_rank_to_db(self, full_name, new_rank):
 
         who = Query()
         exist = False
-        print("joueur ", full_name)
         for elem in self.db_players_table.search(who.last_name == full_name.split()[0]):
             for elem2 in self.db_players_table.search(who.first_name == full_name.split()[1]):
 
                 if (elem['last_name'] == elem2['last_name']) and elem['first_name'] == elem2['first_name']:
                     self.view.prompt_profile_exist()
                     exist = True
-                    self.db_players_table.update(change('rank', str(new_rank)), (who.last_name == full_name.split()[0] and who.first_name == full_name.split()[1]))
+                    self.db_players_table.update(change('rank', str(new_rank)), (
+                            who.last_name == full_name.split()[0] and who.first_name == full_name.split()[1]))
 
                     break
         if not exist:
-            print("not exist")
-
+            self.view.prompt_player_not_exist()
 
     def pairing_round_one(self, current_tournament):
-        print(type(current_tournament.players[0].rank), type(current_tournament.players[1].rank))
-        current_tournament.players.sort(key=lambda x: x.rank, reverse = True)  # reverse peut se faire sur une ligne : reverse = True
+        current_tournament.players.sort(key=lambda x: x.rank,
+                                        reverse=True)  # reverse peut se faire sur une ligne : reverse = True
 
         strong_players = current_tournament.players[:(len(current_tournament.players) // 2)]
         weak_players = current_tournament.players[(len(current_tournament.players) // 2):]
@@ -132,38 +129,23 @@ class Controller:
 
     def pairing_others(self, current_tournament):
 
-
         current_tournament.players.sort(key=lambda x: x.score, reverse=True)
 
         part1 = [player for player in current_tournament.players[::2]]
         part2 = [player for player in current_tournament.players[1::2]]
         pairing = [list(pair) for pair in zip(part1, part2)]
 
-        print("le pairing ###: ", pairing[0][0].last_name + pairing[0][0].first_name + pairing[0][1].last_name + pairing[0][1].first_name)
-        print(type(pairing)," and ", pairing)
         for round in current_tournament.rounds:
             for match in round.matchs:
                 p1 = match.joueur[0].last_name + match.joueur[0].first_name
                 p2 = match.joueur[1].last_name + match.joueur[1].first_name
-                if ( p1 == (pairing[0][0].last_name + pairing[0][0].first_name) and
-                     p2 == pairing[0][1].last_name + pairing[0][1].first_name ) or\
-                    (p1 == pairing[0][1].last_name + pairing[0][1].first_name and
-                     p2 == pairing[0][0].last_name + pairing[0][0].first_name) :
-
+                if (p1 == (pairing[0][0].last_name + pairing[0][0].first_name) and
+                    p2 == pairing[0][1].last_name + pairing[0][1].first_name) or \
+                        (p1 == pairing[0][1].last_name + pairing[0][1].first_name and
+                         p2 == pairing[0][0].last_name + pairing[0][0].first_name):
                     pairing[0][0], pairing[1][0] = pairing[1][0], pairing[0][0]
 
-        print("le pairing ###: ", pairing)
-
         return pairing
-
-    '''final_pairing = (list(zip(pairing, pairing2)))
-
-        for match in matchs:
-            for pair in final_pairing:
-                if match.joueur[0] == pair[0] and match.joueur[1] == pair[1]:
-                    pass
-        # si j1 deja jouer j2 => J1,j3, si J1,j3 déjà jouer =>
-        '''
 
     def update_player_score(self, current_tournament, matchs):
         for joueur in current_tournament.players:
