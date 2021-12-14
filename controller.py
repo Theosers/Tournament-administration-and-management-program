@@ -75,6 +75,7 @@ class Controller:
 
         self.view.prompt_press_enter()
         self.db_tournament_table.insert(current_tournament.serialized_tournament())
+        self.view.prompt_press_enter()
 
     def add_player_to_db(self, current_tournament):
 
