@@ -33,20 +33,20 @@ class View:
             place = place.capitalize()
 
             print("Please enter a date for the tournament")
-            year = input("Year : ")
-            month = input("Month : ")
-            day = input("Day : ")
+            date = input("Please enter a date (Y M D) : ")
+            date = date.split()
+            if not len(date) == 3:
+                print("you need to enter a year, month and day")
+            if not self.test_is_number(date[0]):
+                continue
+            if not self.test_is_number(date[1]):
+                continue
+            if not self.test_is_number(date[2]):
+                continue
 
-            if not self.test_is_number(year):
+            if not self.test_date_valid(date):
                 continue
-            if not self.test_is_number(month):
-                continue
-            if not self.test_is_number(day):
-                continue
-
-            if not self.test_date_valid(int(year), int(month), int(day)):
-                continue
-            date = year + '-' + month + '-' + day
+            date = date[0] + '-' + date[1] + '-' + date[2]
 
             number_of_rounds = input("Number of rounds : ")
             if number_of_rounds == "":
@@ -93,21 +93,22 @@ class View:
         while True:
             print(
                 '***********************************************')
-            print("Please enter a Birthday date")
-            year = input("Year : ")
-            month = input("Month : ")
-            day = input("Day : ")
+            birthday_date = input("Please enter a Birthday date (Y M D) : ")
+            birthday_date = birthday_date.split()
+            if not len(birthday_date) == 3:
+                print("you need to enter a year, month and day")
+                continue
+            if not self.test_is_number(birthday_date[0]):
+                continue
+            if not self.test_is_number(birthday_date[1]):
+                continue
+            if not self.test_is_number(birthday_date[2]):
+                continue
 
-            if not self.test_is_number(year):
+            if not self.test_date_valid(birthday_date):
                 continue
-            if not self.test_is_number(month):
-                continue
-            if not self.test_is_number(day):
-                continue
+            birthday_date = birthday_date[0] + '-' + birthday_date[1] + '-' + birthday_date[2]
 
-            if not self.test_date_valid(int(year), int(month), int(day)):
-                continue
-            birthday_date = year + '-' + month + '-' + day
             gender = input("Gender :")
             if not self.test_first_as_letter(gender):
                 continue
@@ -328,10 +329,11 @@ class View:
         except ValueError:
             print("This is not a number !")
 
-    def test_date_valid(self, year, month, day):
+    def test_date_valid(self, date):
+
         correctDate = None
         try:
-            newDate = datetime.datetime(year, month, day)
+            datetime.datetime(int(date[0]), int(date[1]), int(date[2]))
             correctDate = True
         except ValueError:
             correctDate = False
