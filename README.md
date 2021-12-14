@@ -45,5 +45,5 @@ pip install -r requirements.txt
 To generate a new flake8-html file :
 
 ```
-flake8 --format=html --htmldir=flake-report --max-line-length=119
+flake8 --format=html --htmldir=flake-report --max-line-length=119 main.py controller.py models.py view.py
 ```
