@@ -67,6 +67,7 @@ class Controller:
                 r.matchs.append(match)
 
             self.view.prompt_end_round(round, current_time)
+            self.view.prompt_press_enter()
             r.time.append(current_time)
             current_tournament.rounds.append(r)
             current_tournament.serialized_rounds.append(r.serialized_round())
@@ -75,7 +76,7 @@ class Controller:
 
         self.view.prompt_press_enter()
         self.db_tournament_table.insert(current_tournament.serialized_tournament())
-        self.view.prompt_press_enter()
+
 
     def add_player_to_db(self, current_tournament):
 
