@@ -67,13 +67,13 @@ class Controller:
                 r.matchs.append(match)
 
             self.view.prompt_end_round(round, current_time)
-            self.view.prompt_press_enter()
+
             r.time.append(current_time)
             current_tournament.rounds.append(r)
             current_tournament.serialized_rounds.append(r.serialized_round())
             for player in current_tournament.players:
                 self.view.prompt_for_end_of_tournament(player.last_name + ' ' + player.first_name, player.score)
-
+            self.view.prompt_press_enter()
         self.view.prompt_press_enter()
         self.db_tournament_table.insert(current_tournament.serialized_tournament())
 
