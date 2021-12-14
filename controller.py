@@ -44,7 +44,7 @@ class Controller:
             t = time.localtime()
             current_time = time.strftime("%H:%M:%S", t)
             self.view.prompt_start_round(round, current_time)
-            clear()
+
             r.time.append(current_time)
 
             for index, pair in enumerate(pairing):
